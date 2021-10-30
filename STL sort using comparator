@@ -1,0 +1,29 @@
+// A C++ program to demonstrate
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Interval {
+	int start, end;
+};
+
+bool compareInterval(Interval i1, Interval i2)
+{
+	return (i1.start < i2.start);
+}
+
+int main()
+{
+	Interval arr[]
+		= { { 7, 9 }, { 2, 1 }, { 3, 5 }, { 5, 8 } };
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	sort(arr, arr + n, compareInterval);
+
+	cout << "Intervals sorted by start time : \n";
+	for (int i = 0; i < n; i++)
+		cout << "[" << arr[i].start << "," << arr[i].end
+			<< "] ";
+
+	return 0;
+}
